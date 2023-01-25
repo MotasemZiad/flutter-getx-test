@@ -14,8 +14,8 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: GetX<HomeController>(
-          builder: (controller) => Text(
+        child: Obx(
+          () => Text(
             'You pressed the button this many times:\n ${controller.count}',
             style: const TextStyle(
               fontSize: 20,
