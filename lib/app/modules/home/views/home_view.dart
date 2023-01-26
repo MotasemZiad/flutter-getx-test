@@ -56,15 +56,17 @@ class HomeView extends GetView<HomeController> {
             ),
             Expanded(
               child: Obx(
-                () => MasonryGridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  itemCount: productController.productList.length,
-                  itemBuilder: (context, index) => ProductTile(
-                    product: productController.productList[index],
-                  ),
-                ),
+                () => productController.isLoading.value
+                    ? const Center(child: CircularProgressIndicator())
+                    : MasonryGridView.count(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        itemCount: productController.productList.length,
+                        itemBuilder: (context, index) => ProductTile(
+                          product: productController.productList[index],
+                        ),
+                      ),
               ),
             ),
           ],
