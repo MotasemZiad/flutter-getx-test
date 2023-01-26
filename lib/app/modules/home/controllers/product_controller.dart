@@ -1,4 +1,4 @@
-import 'package:flutter_getx_test/app/modules/home/models/product.dart';
+import 'package:flutter_getx_test/app/data/models/product_model.dart';
 import 'package:flutter_getx_test/app/modules/home/services/remote_services.dart';
 import 'package:get/get.dart';
 

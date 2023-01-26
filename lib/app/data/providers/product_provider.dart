@@ -1,27 +1,20 @@
 import 'package:get/get.dart';
 
-import '../models/product.dart';
+import '../models/product_model.dart';
 
 class ProductProvider extends GetConnect {
   @override
   void onInit() {
     httpClient.defaultDecoder = (map) {
       if (map is Map<String, dynamic>) return Product.fromJson(map);
-      if (map is List) {
+      if (map is List)
         return map.map((item) => Product.fromJson(item)).toList();
-      }
     };
     httpClient.baseUrl = 'YOUR-API-URL';
   }
 
   Future<Product?> getProduct(int id) async {
     final response = await get('product/$id');
-    return response.body;
-  }
-
-  Future<List<Product>> getProducts() async {
-    final response = await get(
-        'https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline');
     return response.body;
   }
 

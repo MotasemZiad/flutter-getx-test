@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_test/app/modules/home/models/product.dart';
+import 'package:flutter_getx_test/app/data/models/product_model.dart';
 import 'package:get/get.dart';
 
 class ProductTile extends StatelessWidget {
@@ -24,7 +24,7 @@ class ProductTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Image.network(
-                    product.imageLink,
+                    product.imageLink ?? '',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -46,7 +46,7 @@ class ProductTile extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              product.name,
+              product.name!,
               maxLines: 2,
               style: const TextStyle(fontWeight: FontWeight.w800),
               overflow: TextOverflow.ellipsis,
@@ -75,8 +75,10 @@ class ProductTile extends StatelessWidget {
                 ),
               ),
             const SizedBox(height: 8),
-            Text('\$${product.price}',
-                style: const TextStyle(fontSize: 32, fontFamily: 'avenir')),
+            Text(
+              '\$${product.price}',
+              style: const TextStyle(fontSize: 32),
+            ),
           ],
         ),
       ),
