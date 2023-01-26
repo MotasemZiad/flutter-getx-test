@@ -28,7 +28,6 @@ class Product {
   String? apiFeaturedImage;
   List<Object>? productColors;
   var isFavorite = false.obs;
-
   Product(
       {this.id,
       this.brand,

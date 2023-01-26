@@ -34,8 +34,14 @@ class ProductTile extends StatelessWidget {
                         backgroundColor: Colors.white,
                         child: IconButton(
                           icon: product.isFavorite.value
-                              ? const Icon(Icons.favorite_rounded)
-                              : const Icon(Icons.favorite_border),
+                              ? const Icon(
+                                  Icons.favorite_rounded,
+                                  color: Colors.red,
+                                )
+                              : const Icon(
+                                  Icons.favorite_border,
+                                  color: Colors.red,
+                                ),
                           onPressed: () {
                             product.isFavorite.toggle();
                           },
@@ -64,6 +70,7 @@ class ProductTile extends StatelessWidget {
                   children: [
                     Text(
                       product.rating.toString(),
+                      textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.white),
                     ),
                     const Icon(
